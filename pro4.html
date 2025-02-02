@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weight Gain Program Sign Up</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-image: url('gymbg.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #e0e0e0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            justify-content: center;
+            backdrop-filter: blur(5px);
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: #ffcc00;
+            margin-bottom: 40px;
+        }
+
+        .form-container {
+            background-color: rgba(0, 0, 0, 0.9);
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 600px;
+        }
+
+         .form-container input,
+        .form-container textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ffcc00;
+            border-radius: 4px;
+            background-color: #fff;
+            color: #000;
+        }
+
+        .form-container input:focus,
+        .form-container textarea:focus {
+            border-color: #ffcc00;
+            box-shadow: 0 0 5px rgba(255, 204, 0, 0.5);
+            background-color: #fff; 
+            color: #000;
+        }
+
+        .form-container button {
+            width: 100%;
+            background-color: #ffcc00;
+            color: black;
+            border: none;
+            border-radius: 4px;
+            padding: 12px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .form-container button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 4px;
+            background: rgba(255, 204, 0, 0.5);
+            filter: blur(8px);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .form-container button:hover::after {
+            opacity: 1;
+        }
+
+        .form-container button:hover {
+            box-shadow: 0 0 10px #ffcc00, 0 0 20px #ffcc00;
+        }
+
+        .back-link {
+            margin-top: 50px;
+            color: black;
+            text-decoration: none;
+            font-size: 1.25rem;
+            font-weight: bold;
+            padding: 10px 20px;
+            background-color: #ffcc00;
+            border-radius: 4px;
+            display: inline-block;
+            text-align: center;
+            width: auto;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .back-link:hover {
+            background-color: #ffffff;
+            color: black;
+        }
+
+        .error {
+            color: #ffcc00;
+            margin-top: -10px;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="pro&acti.html" class="back-link">Back to Programs</a>
+
+    <h1>Sign Up for Fat Loss Program</h1>
+
+    <div class="form-container">
+        <form id="weight-gain-form">
+            <div class="mb-3">
+                <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+                <div id="name-error" class="error"></div>
+            </div>
+
+            <div class="mb-3">
+                <input type="email" class="form-control" id="email" placeholder="Your Email" required>
+                <div id="email-error" class="error"></div>
+            </div>
+
+            <div class="mb-3">
+                <input type="text" class="form-control" id="phone" placeholder="Your Phone Number" required>
+                <div id="phone-error" class="error"></div>
+            </div>
+
+            <div class="mb-3">
+                <input type="number" class="form-control" id="age" placeholder="Your Age" required>
+                <div id="age-error" class="error"></div>
+            </div>
+
+            <div class="mb-3">
+                <input type="number" class="form-control" id="weight" placeholder="Your Weight (kg)" required>
+                <div id="weight-error" class="error"></div>
+            </div>
+
+            <div class="mb-3">
+                <input type="number" class="form-control" id="height" placeholder="Your Height (cm)" required>
+                <div id="height-error" class="error"></div>
+            </div>
+
+            <div class="mb-3">
+                <textarea class="form-control" id="goals" placeholder="Your Fitness Goals" required rows="4"></textarea>
+                <div id="goals-error" class="error"></div>
+            </div>
+
+            <button type="button" class="btn btn-warning" onclick="sendForm()">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        function validateForm() {
+            let valid = true;
+
+            // Clear previous error messages
+            const errorFields = ['name', 'email', 'phone', 'age', 'weight', 'height', 'goals'];
+            errorFields.forEach(field => {
+                document.getElementById(`${field}-error`).textContent = '';
+            });
+
+            // Field validation
+            const validations = {
+                name: value => value.trim() !== '',
+                email: value => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value),
+                phone: value => /^\+?[1-9]\d{1,14}$/.test(value),
+                age: value => value > 0,
+                weight: value => value > 0,
+                height: value => value > 0,
+                goals: value => value.trim() !== ''
+            };
+
+            errorFields.forEach(field => {
+                const input = document.getElementById(field);
+                if (!validations[field](input.value)) {
+                    document.getElementById(`${field}-error`).textContent = `Please enter a valid ${field}.`;
+                    valid = false;
+                }
+            });
+
+            return valid;
+        }
+
+        function sendForm() {
+            if (!validateForm()) return;
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const age = document.getElementById('age').value;
+            const weight = document.getElementById('weight').value;
+            const height = document.getElementById('height').value;
+            const goals = document.getElementById('goals').value;
+
+            // Send email using mailto
+            const emailBody = `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nAge: ${age}\nWeight: ${weight}\nHeight: ${height}\nGoals: ${goals}`;
+            const mailtoLink = `mailto:flexfitclub2k25@gmail.com?subject=Weight Gain Program Signup&body=${encodeURIComponent(emailBody)}`;
+            window.location.href = mailtoLink;
+
+            
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Membership Plans</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('gymbg.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Navbar Styling */
+        nav {
+            background-color: black;
+            padding: 10px 0;
+        }
+
+        nav .navbar-brand img {
+            height: 40px; /* Adjust logo size */
+        }
+
+        nav a {
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: yellow;
+        }
+
+        nav .ml-auto {
+            margin-left: auto;
+        }
+
+        h1 {
+            color: yellow;
+            margin-top: 80px;
+            text-align: center;
+        }
+
+        /* Membership Plans Card */
+        .membership-card {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            border-radius: 10px;
+            text-align: center;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 380px; /* Ensures uniform height for all cards */
+            flex-grow: 1; /* Allow cards to grow and fill space equally */
+        }
+
+        .membership-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .membership-card h3 {
+            color: yellow;
+            margin: 10px 0;
+        }
+
+        .membership-card p {
+            margin: 5px 0;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            background-color: yellow;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            background-color: #ffd700;
+        }
+
+        /* Modal Styling (Smaller and more compact) */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #333;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            width: 320px; /* Reduced width for more compact modal */
+            height: auto;
+            max-width: 90%;
+        }
+
+        .modal h2 {
+            margin-top: 0;
+            color: yellow;
+            font-size: 1.2rem; /* Adjusted font size for a more compact look */
+        }
+
+        .modal p {
+            font-size: 1rem;
+        }
+
+        .modal button {
+            padding: 8px 16px;
+            background-color: yellow;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .modal button:hover {
+            background-color: #ffd700;
+        }
+
+        .close-btn {
+            float: right;
+            font-size: 20px;
+            cursor: pointer;
+            color: yellow;
+        }
+
+        .total-amount {
+            font-size: 1rem;
+            margin-top: 10px;
+        }
+
+        /* Footer Styling */
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Navbar with Logo and Home/Support links -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="index.html">
+           <img src="logo.png" alt="FlexFit Gym Logo"> <!-- Add your logo image here -->
+        </a>
+        <div class="ml-auto">
+            <a href="index.html">Home</a>
+            <a href="support.html">Support</a>
+        </div>
+    </nav>
+
+    <!-- Title -->
+    <h1>Explore Our Various Membership Plan</h1>
+
+    <!-- Membership Plans Grid -->
+    <div class="container" id="plans">
+        <div class="row">
+            <!-- Membership Plan 1 -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex align-items-stretch">
+                <div class="membership-card">
+                    <img src="mem1.png" alt="Flex Starter">
+                    <h3>Flex Starter</h3>
+                    <p>1-Month Plan</p>
+                    <p>RS 599</p>
+                    <button class="btn" onclick="showDetails(0)">View Details</button>
+                </div>
+            </div>
+
+            <!-- Membership Plan 2 -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex align-items-stretch">
+                <div class="membership-card">
+                    <img src="mem2.png" alt="Strength Builder">
+                    <h3>Strength Builder</h3>
+                    <p>3-Month Plan</p>
+                    <p>RS 1299</p>
+                    <button class="btn" onclick="showDetails(1)">View Details</button>
+                </div>
+            </div>
+
+            <!-- Membership Plan 3 -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex align-items-stretch">
+                <div class="membership-card">
+                    <img src="acti2.png" alt="Power Surge">
+                    <h3>Power Surge</h3>
+                    <p>6-Month Plan</p>
+                    <p>RS 2099</p>
+                    <button class="btn" onclick="showDetails(2)">View Details</button>
+                </div>
+            </div>
+
+            <!-- Membership Plan 4 -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex align-items-stretch">
+                <div class="membership-card">
+                    <img src="mem4.png" alt="Peak Performance">
+                    <h3>Peak Performance</h3>
+                    <p>1-Year Plan</p>
+                    <p>RS 5555</p>
+                    <button class="btn" onclick="showDetails(3)">View Details</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Plan Details Modal -->
+<div class="modal" id="planDetailsModal">
+    <span class="close-btn" onclick="closeModal()">&times;</span>
+    <h2 id="modalPlanName">Plan Name</h2>
+    <p id="modalPlanPrice">Price</p>
+    <h3>Choose Your Add-ons:</h3>
+    <ul>
+        <li><input type="radio" name="trainer" value="0" checked> No Trainer</li>
+        <li><input type="radio" name="trainer" value="1000"> 1-Month Training (RS 1000)</li>
+        <li><input type="radio" name="trainer" value="2500"> 3-Month Training (RS 2500)</li>
+        <li><input type="radio" name="trainer" value="4800"> 6-Month Training (RS 4800)</li>
+        <li><input type="radio" name="trainer" value="9000"> 12-Month Training (RS 9000)</li>
+    </ul>
+    <div class="total-amount">Your Estimated Total Is :  <span id="totalAmount">0</span></div>
+   
+</div>
+
+<!-- Google Pay Button Section -->
+<div id="gpay-button" style="display:none;"></div>
+
+<!-- QR Code Section -->
+<div id="qr-code-section" style="display:none;">
+    <img id="qr-code-image" style="display:none;" alt="QR Code" />
+</div>
+
+<!-- Bill Section after Payment -->
+<div id="bill-section" style="display:none;"></div>
+
+<!-- Scripts -->
+<script async src="https://pay.google.com/gp/p/js/pay.js"></script>
+
+<script>
+// Initialize variables for selected plan and trainer costs
+let selectedPlanCost = 0;
+let selectedTrainerCost = 0;
+
+// Plan details (No duration mentioned here)
+const planPrices = [599, 1299, 2099, 5555];  // Flex Starter, Strength Builder, Power Surge, Peak Performance
+const planNames = ["Flex Starter", "Strength Builder", "Power Surge", "Peak Performance"];
+
+// Trainer options (No Trainer, 1-Month, 3-Month, 6-Month, 12-Month)
+const trainerOptions = [0, 1000, 2500, 4800, 9000];
+
+// Function to detect device type and update UI elements accordingly
+function detectDevice() {
+    const width = window.innerWidth;
+    if (width <= 768) {
+        // Mobile Device
+        showGooglePayButton();
+        hideQrCodeOption();
+    } else if (width <= 1024) {
+        // Tablet
+        showGooglePayButton();
+        showQrCodeOption();
+    } else {
+        // Laptop/Desktop
+        showGooglePayButton();
+        showQrCodeOption();
+    }
+}
+
+// Show Google Pay Button
+function showGooglePayButton() {
+    document.getElementById("gpay-button").style.display = "block";
+}
+
+// Hide Google Pay Button
+function hideGooglePayButton() {
+    document.getElementById("gpay-button").style.display = "none";
+}
+
+// Show QR Code Option
+function showQrCodeOption() {
+    document.getElementById("qr-code-section").style.display = "block";
+}
+
+// Hide QR Code Option
+function hideQrCodeOption() {
+    document.getElementById("qr-code-section").style.display = "none";
+}
+
+// Initialize Google Pay button and setup payment request
+function onGooglePayLoaded() {
+    const paymentsClient = new google.payments.api.PaymentsClient({ environment: 'TEST' });
+    const paymentRequest = {
+        apiVersion: 2,
+        apiVersionMinor: 0,
+        allowedPaymentMethods: [{
+            type: 'CARD',
+            parameters: {
+                allowedAuthMethods: ['PAN_ONLY', 'CRYPTOGRAM_3DS'],
+                allowedCardNetworks: ['MASTERCARD', 'VISA']
+            },
+            tokenizationSpecification: {
+                type: 'PAYMENT_GATEWAY',
+                parameters: {
+                    gateway: 'example',
+                    gatewayMerchantId: 'exampleGatewayMerchantId'
+                }
+            }
+        }],
+        merchantInfo: {
+            merchantId: 'BCR2DN6T6E4Z5Y5A',
+            merchantName: 'Your Business Name'
+        },
+        transactionInfo: {
+            totalPriceStatus: 'FINAL',
+            totalPrice: selectedPlanCost + selectedTrainerCost,
+            currencyCode: 'INR',
+            countryCode: 'IN'
+        }
+    };
+
+    const button = paymentsClient.createButton({
+        onClick: () => processGooglePay(paymentsClient, paymentRequest),
+        buttonColor: 'default',
+        buttonType: 'long'
+    });
+
+    document.getElementById("gpay-button").appendChild(button);
+}
+
+// Process Google Pay Payment
+function processGooglePay(paymentsClient, paymentRequest) {
+    paymentsClient.loadPaymentData(paymentRequest).then(paymentData => {
+        console.log("Payment successful:", paymentData);
+        generateBill(paymentData.transactionInfo.totalPrice);
+    }).catch(err => {
+        console.error("Payment failed:", err);
+    });
+}
+
+// Generate the payment bill dynamically
+function generateBill(amountPaid) {
+    const billSection = document.getElementById("bill-section");
+    const billContent = `
+        <h3>Payment Successful!</h3>
+        <p><strong>Membership:</strong> Premium</p>
+        <p><strong>Amount Paid:</strong> ₹${amountPaid}</p>
+        <p><strong>Transaction ID:</strong> ${Math.random().toString(36).substring(7)}</p>
+    `;
+    billSection.innerHTML = billContent;
+    billSection.style.display = "block";
+}
+
+// Function to open the plan details modal and dynamically show plan info
+function showDetails(planIndex) {
+    document.getElementById("modalPlanName").innerText = planNames[planIndex];
+    document.getElementById("modalPlanPrice").innerText = `Price: ₹${planPrices[planIndex]}`;
+    selectedPlanCost = planPrices[planIndex];
+    updateTotalAmount();
+    document.getElementById("planDetailsModal").style.display = "block";
+}
+
+// Close the plan details modal
+function closeModal() {
+    document.getElementById("planDetailsModal").style.display = "none";
+}
+
+// Calculate total cost based on selected plan and trainer
+function calculateTotal() {
+    const trainerSelection = document.querySelector('input[name="trainer"]:checked');
+    if (trainerSelection) {
+        selectedTrainerCost = parseInt(trainerSelection.value);
+    }
+    const totalAmount = selectedPlanCost + selectedTrainerCost;
+    document.getElementById("totalAmount").innerText = `₹${totalAmount}`;
+}
+
+// Update total amount dynamically when trainer option changes
+document.querySelectorAll('input[name="trainer"]').forEach(input => {
+    input.addEventListener('change', updateTotalAmount);
+});
+
+// Update total amount based on current selections
+function updateTotalAmount() {
+    const trainerSelection = document.querySelector('input[name="trainer"]:checked');
+    selectedTrainerCost = trainerSelection ? parseInt(trainerSelection.value) : 0;
+    const totalAmount = selectedPlanCost + selectedTrainerCost;
+    document.getElementById("totalAmount").innerText = `₹${totalAmount}`;
+}
+
+// Call the detectDevice function when the page loads
+window.onload = detectDevice;
+</script>
+
+</body>
+</html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlexFit Program</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Global styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('planbg.png'); /* Replace with your background image path */
+            background-size: cover;
+            background-position: center;
+            color: white;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Navbar styles */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .navbar img {
+            height: 50px; /* Adjust logo size */
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: yellow;
+            font-weight: bold;
+            padding: 10px 15px;
+            border: 2px solid transparent;
+            border-radius: 5px;
+            transition: color 0.3s ease, background-color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: white;
+           
+        }
+
+        /* Program Cards Section */
+        .program-container, .activities-container {
+            padding: 50px 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .program-card, .activity-card {
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .program-card img, .activity-card img {
+            width: 100%;
+            height: 200px; /* Ensure consistent image height */
+            object-fit: cover; /* Ensures the image fills the space without distortion */
+        }
+
+        .description-box {
+            padding: 20px;
+            flex-grow: 1; /* Ensures description box fills available space */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Ensures the button is at the bottom */
+        }
+
+        .description-box h2 {
+            color: yellow;
+            margin-bottom: 10px;
+        }
+
+        .description-box p {
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .sign-up-button {
+            display: inline-block;
+            text-decoration: none;
+            color: yellow;
+            font-weight: bold;
+            border: 2px solid yellow;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            margin-top: 20px;
+            align-self: center; /* Align the button at the center horizontally */
+        }
+
+        .sign-up-button:hover {
+            background-color: yellow;
+            color: black;
+        }
+
+        /* Footer Section */
+        footer {
+            background-color: rgba(0, 0, 0, 0.7);
+            text-align: center;
+            padding: 15px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer p {
+            margin: 0;
+            color: yellow;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <a href="index.html"><img src="logo.png" alt="FlexFit Gym Logo"></a> <!-- Replace with your logo image path -->
+        <div class="nav-links">
+            <a href="index.html" id="home-btn">Home</a>
+            <a href="support.html" id="support-btn">Support</a>
+        </div>
+    </div>
+
+    <!-- Set Your Goal Title -->
+    <div class="goal-section">
+        <h1 style="text-align: center; color: rgb(255, 255, 255); margin-top: 50px;">Set Your Goal</h1>
+    </div>
+
+    <!-- Program Cards Container -->
+    <div class="program-container">
+        <div class="row">
+            <!-- Card 1: Weight Gain -->
+            <div class="col-md-6 col-lg-3">
+                <div class="program-card" id="program1">
+                    <img src="pro1.png" alt="Weight Gain Program Image">
+                    <div class="description-box">
+                        <h2>Weight Gain</h2>
+                        <p>Designed to help you gain weight safely and effectively through balanced nutrition and targeted exercises.</p>
+                        <a href="pro1.html" class="sign-up-button">Sign Up Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2: Weight Loss -->
+            <div class="col-md-6 col-lg-3">
+                <div class="program-card" id="program2">
+                    <img src="pro2.png" alt="Weight Loss Program Image">
+                    <div class="description-box">
+                        <h2>Weight Loss</h2>
+                        <p>A personalized program focused on sustainable weight loss through healthy eating and fitness routines.</p>
+                        <a href="pro2.html" class="sign-up-button">Sign Up Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3: Muscle Gain -->
+            <div class="col-md-6 col-lg-3">
+                <div class="program-card" id="program3">
+                    <img src="pro3.png" alt="Muscle Gain Program Image">
+                    <div class="description-box">
+                        <h2>Muscle Gain</h2>
+                        <p>Build muscle mass with our specialized strength training and muscle-building nutrition plan.</p>
+                        <a href="pro3.html" class="sign-up-button">Sign Up Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4: Fat Loss -->
+            <div class="col-md-6 col-lg-3">
+                <div class="program-card" id="program4">
+                    <img src="pro4.png" alt="Fat Loss Program Image">
+                    <div class="description-box">
+                        <h2>Fat Loss</h2>
+                        <p>Reduce body fat and improve muscle definition with effective cardio and strength routines.</p>
+                        <a href="pro4.html" class="sign-up-button">Sign Up Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Activities Section -->
+    <div class="goal-section">
+        <h1 style="text-align: center; color: yellow; margin-top: 50px;">Activities</h1>
+    </div>
+
+    <!-- Activities Cards Container -->
+    <div class="activities-container">
+        <div class="row">
+            <!-- Card 1: Strength Training -->
+            <div class="col-md-6 col-lg-3">
+                <div class="activity-card" id="activity1">
+                    <img src="acti1.png" alt="Strength Training">
+                    <div class="description-box">
+                        <h2>Strength Training</h2>
+                        <p>Build muscle, improve strength, and increase your overall fitness with focused weight training.</p>
+                        <a href="acti1.html" class="sign-up-button">Sign Up Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2: Core Strengthening -->
+            <div class="col-md-6 col-lg-3">
+                <div class="activity-card" id="activity2">
+                    <img src="acti2.png" alt="Core Strengthening">
+                    <div class="description-box">
+                        <h2>Core Strengthening</h2>
+                        <p>Focus on strengthening your core muscles to improve stability and posture.</p>
+                        <a href="acti2.html" class="sign-up-button">Sign Up Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3: General Fitness -->
+            <div class="col-md-6 col-lg-3">
+                <div class="activity-card" id="activity3">
+                    <img src="acti3.png" alt="General Fitness">
+                    <div class="description-box">
+                        <h2>General Fitness</h2>
+                        <p>A well-rounded fitness program to improve endurance, strength, and flexibility.</p>
+                        <a href="acti3.html" class="sign-up-button">Sign Up Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4: Workout Ignition -->
+            <div class="col-md-6 col-lg-3">
+                <div class="activity-card" id="activity4">
+                    <img src="acti4.png" alt="Workout Ignition">
+                    <div class="description-box">
+                        <h2>Workout Ignition</h2>
+                        <p>Get energized and motivated with our high-intensity workout sessions designed to boost performance.</p>
+                        <a href="acti4.html" class="sign-up-button">Sign Up Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 FlexFit. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

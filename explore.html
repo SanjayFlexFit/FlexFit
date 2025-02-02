@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore FlexFit</title>
+    <!-- Add Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto Condensed', sans-serif;
+            color: #fff;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), #222), url('gymbg.png') center/cover fixed;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #222;
+            box-shadow: 0 0 15px 5px #FFD700;
+        }
+
+        .navbar .logo img {
+            width: 40px; /* Smaller logo size */
+        }
+
+        .navbar a {
+            color: #FFD700;
+            text-decoration: none;
+            margin: 0 15px;
+            transition: color 0.3s ease;
+        }
+
+        .navbar a:hover {
+            color: #fff; /* Links turn white on hover */
+        }
+
+        .hero-section {
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .hero-section h1 {
+            font-size: 3em;
+            color: #FFD700;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .hero-section p {
+            font-size: 1.5em;
+            margin: 20px 0 40px;
+            animation: slideUp 2.5s ease-in-out;
+        }
+
+        .hero-section .cta-button {
+            padding: 15px 30px;
+            background-color: #FFD700;
+            color: #000;
+            font-weight: bold;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 0 10px #FFD700;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: zoomIn 3s ease;
+        }
+
+        .hero-section .cta-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px #FFD700, 0 0 30px #FFD700;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            0% { transform: translateY(50px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes zoomIn {
+            0% { transform: scale(0.8); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .content-section {
+            padding: 40px 20px;
+            margin: 20px auto;
+            max-width: 1000px;
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+            text-align: center;
+        }
+
+        .content-section h2 {
+            color: #FFD700;
+            margin-bottom: 15px;
+        }
+
+        .content-section p {
+            color: #ddd;
+            margin-bottom: 20px;
+        }
+
+        .content-section .cta-button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #FFD700;
+            color: #000;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 0 10px #FFD700;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .content-section .cta-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px #FFD700, 0 0 25px #FFD700;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="logo">
+            <a href="index.html"><img src="logo.png" alt="FlexFit Gym Logo"></a>
+        </div>
+        <div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="support.html">Support</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-section">
+        <h1>Explore FlexFit</h1>
+        <p>Discover how we transform fitness into a lifestyle.</p>
+        <a href="member.html" class="cta-button">Get Started</a>
+    </section>
+
+    <section class="content-section" id="summary">
+        <h2>See Our Approaches and Vision</h2>
+        <p>
+            At FlexFit, we believe in a personalized and science-backed approach to fitness. 
+            Whether you're here for strength, endurance, or balance, our experts design programs tailored to your goals.
+        </p>
+        <a href="app&vis.html" class="cta-button">Learn More</a>
+    </section>
+
+    <section class="content-section" id="activities">
+        <h2>Gym Activities</h2>
+        <p>
+            From high-energy group classes to solo training sessions, FlexFit offers a variety of activities to suit your preference. 
+            Join our strength training, cardio workouts, or mindfulness-focused yoga classes.
+        </p>
+        <a href="pro&acti.html" class="cta-button">View Activities</a>
+    </section>
+
+    <!-- Updated section: See a Tour -->
+    <section class="content-section" id="tour">
+        <h2>See a Tour</h2>
+        <p>
+            Experience FlexFit Gym from the comfort of your home. Take a virtual tour of our state-of-the-art facilities and get a feel of the space that will help you reach your fitness goals.
+        </p>
+        <a href="tour.html" class="cta-button">Take the Tour</a>
+    </section>
+
+    <!-- Add Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
